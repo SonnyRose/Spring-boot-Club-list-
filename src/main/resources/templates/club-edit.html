@@ -1,0 +1,94 @@
+<!Doctype html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}" lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="/static/css/styles.css">
+    <title>Club Edit</title>
+</head>
+
+<body class="d-flex flex-column h-100">
+<main class="flex-shrink-0">
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container px-5">
+            <a class="navbar-brand" href="index.html">Start Bootstrap</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
+                    <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Blog</a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog">
+                            <li><a class="dropdown-item" href="blog-home.html">Blog Home</a></li>
+                            <li><a class="dropdown-item" href="blog-post.html">Blog Post</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdownPortfolio" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Portfolio</a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownPortfolio">
+                            <li><a class="dropdown-item" href="portfolio-overview.html">Portfolio Overview</a></li>
+                            <li><a class="dropdown-item" href="portfolio-item.html">Portfolio Item</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Page Content-->
+    <section layout:fragment="body" class="py-5">
+        <div class="container" >
+            <form role="form" method="post" th:action="@{'/club/' + ${clubId} + '/edit'}" th:object="${club}">
+                <input type="hidden" th:field="*{id}">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="title">Title</label>
+                        <input type="text" class="form-control" id="title"
+                               placeholder="Title" th:field="*{title}" name="title">
+                        <p th:if="${#fields.hasErrors('title')}" class="text-danger"
+                        th:errors="*{title}"></p>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="photourl">Photo URL</label>
+                        <input
+                                type="text"
+                                class="form-control"
+                                id="photourl"
+                                name="photoURL"
+                                th:field="*{photourl}"
+                                placeholder="Photo URL">
+                        <p th:if="${#fields.hasErrors('photourl')}" class="text-danger"
+                           th:errors="*{photourl}"></p>
+                    </div>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="content">Content </label>
+                    <input type="text" class="form-control" id="content" name="content" th:field="*{content}" placeholder="Write...">
+                    <p th:if="${#fields.hasErrors('content')}" class="text-danger"
+                       th:errors="*{content}"></p>
+                </div>
+                <button type="submit" class="btn btn-primary">Create</button>
+            </form>
+        </div>
+    </section>
+    <section class="py-5 bg-light">
+        <div class="container px-5 my-5">
+            <h2 class="display-4 fw-bolder mb-4">Let's build something together</h2>
+
+            <a class="btn btn-lg btn-primary" href="#!">Contact us</a>
+        </div>
+
+
+
+    </section>
+</main>
+<!-- Footer-->
+
+</body>
+</html>
