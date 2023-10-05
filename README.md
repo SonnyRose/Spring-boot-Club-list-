@@ -14,6 +14,8 @@ in the future, an English version will be added to this documentation,
 but currently only Ukrainian is available. 
 My project may look similar to other people's projects,
 but that's only because I used ready-made html pages from Bootstrap.
+In the development process, databases were used to store user data. 
+Hope you will like it
 
 Dependencies : 
 * Spring 3.1.4 version 
@@ -25,5 +27,4 @@ Dependencies :
 * Lombok
 * Spring Validation 3.1.4
 * Spring Security 6.1.4
-
 
